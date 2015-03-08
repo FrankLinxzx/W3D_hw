@@ -1,0 +1,338 @@
+/* This code is only meant for previewing your Reflow design. */
+.primaryContainer {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100%;
+    width: 72.562358%;
+    max-width: 960px;
+}
+
+#Header {
+    float: left;
+    height: 230px;
+    clear: none;
+    width: 100%;
+    padding-top: 144px;
+    padding-bottom: 72px;
+    background-color: rgb(69, 69, 69);
+    position: fixed;
+    top: -84px;
+    left: 0px;
+    min-width: 100%;
+    right: auto;
+}
+
+body {
+    font-family: source-sans-pro;
+    color: rgb(69, 69, 69);
+    font-weight: 300;
+}
+
+#hints-MQ1 {
+    float: left;
+    height: auto;
+    clear: both;
+    width: 350px;
+    position: fixed;
+    top: 16px;
+    left: 678.875px;
+    padding: 15px;
+    background-color: rgb(224, 224, 224);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.247059) 0px 2px 5px 0px;
+    box-shadow: rgba(0, 0, 0, 0.247059) 0px 2px 5px 0px;
+    bottom: auto;
+    right: auto;
+}
+
+#box7 {
+    float: left;
+    height: 30px;
+    clear: none;
+    width: 30px;
+    background-image:url("img/popover-tab.svg");
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    position: absolute;
+    top: -15px;
+    bottom: auto;
+    right: 55px;
+    left: auto;
+    z-index: 0;
+    background-position: 0% 0%;
+    background-repeat: no-repeat no-repeat;
+}
+
+#text3 {
+    float: left;
+    font-size: 1em;
+    width: 99.642857%;
+    height: auto;
+    text-align: center;
+    font-weight: 100;
+    line-height: 1em;
+    word-wrap: break-word;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+    position: static;
+    z-index: 4;
+    padding-top: 9px;
+    top: 0px;
+    left: 0px;
+    padding-bottom: 6px;
+    display: none;
+}
+
+#hints-MQ {
+    float: left;
+    height: auto;
+    clear: both;
+    width: 97.998776%;
+    position: fixed;
+    top: auto;
+    left: 0.98822295%;
+    padding: 4px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.247059) 0px 2px 5px 0px;
+    box-shadow: rgba(0, 0, 0, 0.247059) 0px 2px 5px 0px;
+    background-color: rgb(224, 224, 224);
+    bottom: 8px;
+    right: auto;
+    z-index: 100;
+}
+
+#box2:hover {
+    opacity: 1;
+}
+
+#box4:hover {
+    opacity: 1;
+}
+
+#box8 {
+    float: left;
+    height: 30px;
+    margin-left: -71.036298%;
+    margin-top: 271px;
+    clear: none;
+    width: 6.029579%;
+}
+
+#text1 {
+    float: left;
+    font-size: 10em;
+    width: 89.999197%;
+    height: auto;
+    text-align: left;
+    font-weight: 500;
+    line-height: 1em;
+    word-wrap: break-word;
+    margin-left: 15.827422%;
+    margin-top: 38px;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+    margin-right: 0px;
+}
+
+#box6 {
+    float: none;
+    height: auto;
+    margin-left: 6.873832%;
+    margin-top: -82px;
+    clear: none;
+    width: 74.999498%;
+}
+
+#Content {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 285px;
+    clear: none;
+    width: 100%;
+    max-width: 960px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+#Marquee {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    margin-right: auto;
+    padding: 72px 0px;
+    border-top-color: rgb(224, 224, 224);
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+
+#text {
+    float: none;
+    font-size: 3em;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-weight: 100;
+    line-height: 1.5em;
+    word-wrap: break-word;
+    margin: 0px auto;
+    clear: none;
+    min-height: 0px;
+    color: rgb(0, 169, 230);
+    padding: 0px 0px 20px;
+    text-shadow: rgb(255, 255, 255) 0px -2px 5px;
+}
+
+#box {
+    float: none;
+    height: auto;
+    margin: 36px 0px 18px;
+    clear: none;
+    width: 100%;
+    min-width: 0px;
+}
+
+#box1 {
+    float: left;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    width: 49%;
+    padding-right: 0px;
+    padding-left: 0px;
+    min-width: 0px;
+}
+
+#box2 {
+    float: left;
+    width: 100%;
+    height: 268px;
+    margin: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    min-height: 0px;
+    opacity: 0.85;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.247059) 0px 7px 20px -3px;
+    box-shadow: rgba(0, 0, 0, 0.247059) 0px 7px 20px -3px;
+    display: block;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    background-image:url("img/hw0.gif"),url("img/icon_play_movie.svg");
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    background-position: 50% 0%, 50% 50%;
+    background-repeat: no-repeat no-repeat;
+}
+
+#input {
+    float: left;
+    height: 36px;
+    font-size: 1em;
+    margin-left: 29.328849%;
+    margin-top: 36px;
+    clear: both;
+    width: 38.84816%;
+    margin-right: 0%;
+    display: block;
+}
+
+#box3 {
+    float: left;
+    height: auto;
+    margin: 0px 0px 0px 2%;
+    clear: none;
+    width: 49%;
+    padding-right: 0px;
+    padding-left: 0px;
+    min-width: 0px;
+}
+
+#box4 {
+    float: left;
+    width: 100%;
+    height: 268px;
+    margin: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    min-height: 0px;
+    opacity: 0.85;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.247059) 0px 7px 20px -3px;
+    box-shadow: rgba(0, 0, 0, 0.247059) 0px 7px 20px -3px;
+    display: block;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    min-width: 0px;
+}
+
+#_3-pack {
+    float: left;
+    height: auto;
+    margin: 495px 0px 0px;
+    clear: none;
+    width: 99.995117%;
+    padding-bottom: 72px;
+    padding-top: 72px;
+}
+
+#Questions {
+    float: left;
+    height: auto;
+    margin: 347px 0px 0px;
+    clear: both;
+    width: 99.995117%;
+    padding-top: 36px;
+    padding-bottom: 0px;
+}
+
+#box5 {
+    float: left;
+    height: auto;
+    margin: 0px;
+    clear: none;
+    width: 100%;
+    padding-bottom: 72px;
+}
+
+#text2 {
+    float: left;
+    font-size: 1em;
+    width: 99.642858%;
+    height: auto;
+    text-align: center;
+    font-weight: 300;
+    line-height: 1em;
+    word-wrap: break-word;
+    clear: none;
+    min-height: 0px;
+    color: rgb(104, 104, 104);
+    position: static;
+    z-index: 4;
+    padding-top: 9px;
+    top: 0px;
+    left: 0px;
+    padding-bottom: 6px;
+    margin-top: 0px;
+    margin-right: 0%;
+    margin-left: 0%;
+    display: block;
+}
+
