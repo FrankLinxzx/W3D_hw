@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)http://jyunming-chen.github.io/tutsplus/hw0.html -->
-<html hola_ext_inject="disabled"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head>
 <style>
 	canvas {
 		position: fixed;
@@ -8,7 +8,7 @@
 		left: 0;
 	}
 </style>
-<style type="text/css"></style></head>
+</head>
 
 <body>
 <script src="js/three.min.js"></script>
@@ -52,13 +52,13 @@ function init()
 	// FLOOR
 	var floorTexture = new THREE.ImageUtils.loadTexture( 'images/n1.jpg' );
 	floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
-	//floorTexture.repeat.set( 4, 4 );
+	//floorTexture.repeat.set( 1, 4 );
 	var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide } );
 	
-	var floorGeometry = new THREE.PlaneGeometry(54*3.7, 54*3.7);//, 10, 10);  // not clear what segment does
+	var floorGeometry = new THREE.PlaneGeometry(205, 205);//, 10, 10);  // not clear what segment does
 	var floor = new THREE.Mesh(floorGeometry, floorMaterial);
 	floor.position.y = -0.5;
-	floor.rotation.x = Math.PI /2;
+	floor.rotation.x = Math.PI / 2;
 	scene.add(floor);
 
 	var gridXZ = new THREE.GridHelper(100, 10);
@@ -88,7 +88,7 @@ controls.update();
 
 
 
-</script><canvas width="1408" height="738" style="width: 1408px; height: 738px;"></canvas>
+</script>
+</body>
 
-
-</body></html>
+</html>
