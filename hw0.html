@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,9 +52,9 @@ function init()
 	
 	// FLOOR
 	var floorTexture = new THREE.ImageUtils.loadTexture( 'images/n1.jpg' );
-	floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
+	//floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
 	//floorTexture.repeat.set( 1, 4 );
-	var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide } );
+	//var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide } );
 	
 	var floorGeometry = new THREE.PlaneGeometry(205, 205);//, 10, 10);  // not clear what segment does
 	var floor = new THREE.Mesh(floorGeometry, floorMaterial);
