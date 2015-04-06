@@ -89,13 +89,47 @@ function init()
 	floor.position.y = -0.5;
 	floor.rotation.x = Math.PI / 2;
 	 scene.add(floor);
-	var cubeGeometry = new THREE.BoxGeometry (10,10,10);
-	var cubeMaterial = new THREE.MeshLambertMaterial ({color: 0x1ec876});
-	cube = new THREE.Mesh (cubeGeometry, cubeMaterial);
+	 
+	 ///door part 
+	 
+	var doorGeometry = new THREE.BoxGeometry (50,75,5);
+	var doorMaterial = new THREE.MeshLambertMaterial ({color: 0x1ec876});
+	door = new THREE.Mesh (doorGeometry, doorMaterial);
 
-	cube.position.set (50, 0, 0);
-	scene.add (cube);
+	door.position.set (0, 0+42.5, 0);
+	scene.add (door);
+	
+	var cube1Geometry = new THREE.BoxGeometry (5,85,5);
+	var cube1Material = new THREE.MeshLambertMaterial ({color: 0x001176});
+	cube1 = new THREE.Mesh (cube1Geometry, cube1Material);
 
+	cube1.position.set (-27.5, 0+42.5, 0);
+	scene.add (cube1);
+	
+	var cube2Geometry = new THREE.BoxGeometry (5,85,5);
+	var cube2Material = new THREE.MeshLambertMaterial ({color: 0x001176});
+	cube2 = new THREE.Mesh (cube2Geometry, cube2Material);
+
+	cube2.position.set (27.5, 0+42.5, 0);
+	scene.add (cube2);
+	
+	var cube3Geometry = new THREE.BoxGeometry (50,5,5);
+	var cube3Material = new THREE.MeshLambertMaterial ({color: 0x001176});
+	cube3 = new THREE.Mesh (cube3Geometry, cube3Material);
+
+	cube3.position.set (0, 40+42.5, 0);
+	scene.add (cube3);
+	
+	var cube4Geometry = new THREE.BoxGeometry (50,5,5);
+	var cube4Material = new THREE.MeshLambertMaterial ({color: 0x001176});
+	cube4 = new THREE.Mesh (cube4Geometry, cube4Material);
+
+	cube4.position.set (0, -40+42.5, 0);
+	scene.add (cube4);
+	
+	
+	
+	/////////////////////////////
 	camera = new THREE.PerspectiveCamera (45, width/height, 0.1, 10000000);
 	camera.position.y = 160;
 	camera.position.z = 400;
@@ -133,7 +167,7 @@ function animate()
 
 	var x = 50*Math.cos(angle);
 	var z = 50*Math.sin(angle);
-	cube.position.set (x,0,z);
+	
 	//自轉
 
 	

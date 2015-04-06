@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#info {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: #ff0000
+}
+a {
+    color: #ffff00
+}
+}
+
+
+	strong {color: red}
+</style>
+</head>
+
+<body>
+<audio id="opensound" hidden="true">
+<source src="music/refrigerater1_O.mp3" type="audio/mp3">
+</audio>
+<audio id="closesound" hidden="true">
+<source src="music/room_door_C.wav" type="audio/wav">
+</audio>
+<div id="container"></div>
+<div id="info">demo page
+    <br/> <a href="javascript:Toggle();">toggle </a>
+
+</div>
+
+
+
+<script src="js/three.min.js"></script>
+<script src="js/OrbitControls.js"></script>
+<script src="js/KeyboardState.js"></script>
+
+<script>
+// JUST A MATTER OF MrDoob's STYLE (see ppt)
+///////////////////////////////////////////////////////
+// I. GLOBAL VARS
+var clock = new THREE.Clock();
+var scene, renderer, camera;
+var cube;
+var controls, keyboard = new KeyboardState();
+var angle = -3.14;
+var open = 0;
+var close = 0;
+var angleInfoEle;
+var o=0,c=0;
+///////////sound//////////
+var opensound,closesound, soundTrack;
+/////////////////////////////////////////////////////
+// II. Execution order
+init();
+animate();
+sound();
+//////////////////////////////////////////////////////
+// III. functions
+function init()
+{
+	opensound = document.getElementById ('opensound');
+	closesound = document.getElementById ('closesound');
+	var width = window.innerWidth;
+	var height = window.innerHeight;
+
+	debugger;
+	var container = document.getElementById ( 'container' );
+	
+	angleInfoEle = window.document.getElementById ('angleInfo');
+	
+	renderer = new THREE.WebGLRenderer({antialias: true});
+	renderer.setSize (width, height);
+	//document.body.appendChild (renderer.domElement);
+	container.appendChild (renderer.domElement);
+	
+	scene = new THREE.Scene();
+	var floorTexture = new THREE.ImageUtils.loadTexture( 'images/floor-wood.jpg' );
+	//floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
+	//floorTexture.repeat.set( 4, 4 );
+	var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide } );
+	
+	var floorGeometry = new THREE.PlaneGeometry(150, 150);//, 10, 10);  // not clear what segment does
+	var floor = new THREE.Mesh(floorGeometry, floorMaterial);
+	floor.position.y = -0.5;
+	floor.rotation.x = Math.PI / 2;
+	 scene.add(floor);
+	 
+	 ///door part 
+	 var doorTexture = new THREE.ImageUtils.loadTexture( 'images/door.png' );
+	 var bumptex = THREE.ImageUtils.loadTexture('images/doorbump.png');
+	var doorGeometry = new THREE.BoxGeometry (50,75,5);
+	var doorMaterial = new THREE.MeshPhongMaterial ({ map: doorTexture,bumpMap: bumptex,
+							bumpScale: 0.9, side: THREE.DoubleSide });
+	door = new THREE.Mesh (doorGeometry, doorMaterial);
+
+	
+	scene.add (door);
+	
+	var cube1Geometry = new THREE.BoxGeometry (5,85,5);
+	var cube1Material = new THREE.MeshLambertMaterial ({color: 0x000000});
+	cube1 = new THREE.Mesh (cube1Geometry, cube1Material);
+
+	cube1.position.set (-27.5, 0+42.5, 0);
+	scene.add (cube1);
+	
+	var cube2Geometry = new THREE.BoxGeometry (5,85,5);
+	var cube2Material = new THREE.MeshLambertMaterial ({color: 0x000000});
+	cube2 = new THREE.Mesh (cube2Geometry, cube2Material);
+
+	cube2.position.set (27.5, 0+42.5, 0);
+	scene.add (cube2);
+	
+	var cube3Geometry = new THREE.BoxGeometry (50,5,5);
+	var cube3Material = new THREE.MeshLambertMaterial ({color: 0x000000});
+	cube3 = new THREE.Mesh (cube3Geometry, cube3Material);
+
+	cube3.position.set (0, 40+42.5, 0);
+	scene.add (cube3);
+	
+	var cube4Geometry = new THREE.BoxGeometry (50,5,5);
+	var cube4Material = new THREE.MeshLambertMaterial ({color: 0x000000});
+	cube4 = new THREE.Mesh (cube4Geometry, cube4Material);
+
+	cube4.position.set (0, -40+42.5, 0);
+	scene.add (cube4);
+	
+	cube2.add (door);
+	
+	
+	
+	/////////////////////////////
+	camera = new THREE.PerspectiveCamera (45, width/height, 0.1, 10000000);
+	camera.position.y = 160;
+	camera.position.z = 400;
+	camera.lookAt (new THREE.Vector3(0,0,0));
+	//scene.add (camera);  // in fact, no need to add camera to scene
+
+	// add control here (after the camera is defined)
+	controls = new THREE.OrbitControls (camera, render.domElement);
+
+	var skyboxGeometry = new THREE.BoxGeometry (10000,10000,10000);
+	var skyboxMaterial = new THREE.MeshBasicMaterial ({color: 0x000000, side:THREE.BackSide});
+	var skybox = new THREE.Mesh (skyboxGeometry, skyboxMaterial);
+	//scene.add (skybox);
+
+	var gridXZ = new THREE.GridHelper(100, 10);
+	gridXZ.setColors( new THREE.Color(0xff0000), new THREE.Color(0xffffff) );
+	//gridXZ.position.set( 0,10,0 );  // yes, this can be done
+	//scene.add(gridXZ);
+
+	var pointLight = new THREE.PointLight (0xffffff);
+	pointLight.position.set (0,300,200);
+	scene.add (pointLight);
+	
+	window.addEventListener ('resize', onWindowResize, false);
+}
+
+function toggleTurn ()
+{
+	turn = !turn;
+}
+
+function animate()
+{
+	door.position.set(27* Math.cos(angle), 0, -27 * Math.sin(angle));
+		door.rotation.y=angle;
+		if(open==1){ 
+		angle-=0.02;
+		
+			//o=1;
+			//c=0;
+			//closesound.play();
+			opensound.play();
+		   if(angle<=-4.7){
+			angle=-4.7;
+			//o=0;
+			
+			opensound.currentTime=2.4;
+			//c=0;
+		  }
+		}
+		 if(close==1){ 
+	    //o=0;
+		//c=1;
+		
+		//sound();
+		angle+=0.02;
+		
+		closesound.play();
+		
+		   if(angle>=-3.14){
+			angle=-3.14;
+			closesound.currentTime=2.4;
+			
+		  }
+		}
+	
+
+		requestAnimationFrame ( animate );  // timer callback
+		render();  // display callback
+		update();
+	
+}
+function Toggle() {
+    if(angle==-4.7){open = 0; close=1;}
+	if(angle==-3.14){open = 1; close=0;}
+}
+function sound() {
+    if(o==1){
+				opensound.play();
+				
+				}
+	else if(c==1){
+				closesound.play();				 }
+}
+function update()
+{
+
+	controls.update();
+	  
+}
+
+function onWindowResize()
+{
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize (window.innerWidth, window.innerHeight);
+}
+
+function render()
+{
+	renderer.render (scene, camera);
+}
+
+
+</script>
+</body>
+
+</html>
